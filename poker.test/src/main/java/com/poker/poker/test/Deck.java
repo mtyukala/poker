@@ -21,7 +21,8 @@ public class Deck {
     public void shuffle() {
         Utils.SUITS.entrySet().forEach((entry) -> {
             Utils.FACES.forEach((face) -> {
-                cards.add(new Card(entry.getValue(), face));
+                int index = Utils.FACES.indexOf(face);
+                cards.add(new Card(entry.getValue(), face, index > 0 ? index : 1));
             });
         });
         Collections.shuffle(cards);

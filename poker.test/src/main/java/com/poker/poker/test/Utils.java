@@ -28,9 +28,11 @@ public class Utils {
         }
     };
 
-    // --- the face of a given deck of cards
+    // --- The face of a given deck of cards. Assumption:
+    // --- The cards are ranked (from high to low) Ace, King, Queen, Jack, 10, 9, 8, 7, 6, 5, 4, 3, 2.
+    // --- (Ace can be high or low, but is usually high)
     private static final String[] array = {
-        "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q"
+        "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"
     };
     public static final List<String> FACES = new ArrayList<>(Arrays.asList(array));
 

@@ -5,6 +5,8 @@
  */
 package com.poker.poker.test;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -46,26 +48,37 @@ public class Evaluator {
         return false;
     }
 
-    public static void sortBySuit(List<Card> h) {
-        int i, j, min_j;
+    public static void sortBySuit(List<Card> hand) {
+        int index, j, min;
 
-        for (i = 0; i < h.size(); i++) {
+        for (index = 0; index < hand.size(); index++) {
 
-            min_j = i;   // Assume elem i (h[i]) is the minimum
+            min = index;   // Assume elem i (h[i]) is the minimum
 
-            for (j = i + 1; j < h.size(); j++) {
-                if (h[j].suit() < h[min_j].suit()) {
-                    min_j = j;    // We found a smaller suit value, update min_j
+            for (j = index + 1; j < hand.size(); j++) {
+                if (hand.get(index).getRank() < hand.get(min).getRank()) {
+                    min = j;    // We found a smaller suit value, update min_j
                 }
             }
 
-            Card help = h.get(i);
+            Card card = hand.get(index);
 
-            h.set(i, h.get(min_j));
-            h.set(min_j, help);
+            hand.set(index, hand.get(min));
+            hand.set(min, card);
+
         }
+        hand.forEach((card) -> {
+            System.err.println(card.getRank());
+        });
     }
     public void evaluate(List<Card> hand) {
-        System.err.println("not implemented yet");
+        Collections.sort(hand, new Comparator<Card>() {
+
+            @Override
+            public int compare(Card o1, Card o2) {
+
+            }
+        });
+
     }
 }

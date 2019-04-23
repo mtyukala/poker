@@ -34,9 +34,6 @@ class PokerGame {
     }
 
     void score() {
-        this.hand.forEach((t) -> {
-            System.out.println(t);
-        });
         this.evaluator.evaluate(this.hand);
     }
 }
