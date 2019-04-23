@@ -22,7 +22,7 @@ public class Deck {
         Utils.SUITS.entrySet().forEach((entry) -> {
             Utils.FACES.forEach((face) -> {
                 int index = Utils.FACES.indexOf(face);
-                cards.add(new Card(entry.getValue(), face, index > 0 ? index : 1));
+                cards.add(new Card(entry.getValue(), face, index >= 0 ? index + 1 : 1));
             });
         });
         Collections.shuffle(cards);
