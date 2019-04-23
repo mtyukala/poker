@@ -7,8 +7,8 @@ package com.poker.poker.test;
 public class Card {
     private String suitFamily;
     private String face;
-    
-    
+
+
     /**
      * Constructor to create a card object from the given parameters
      * @param suitFamily the family to which the card belongs. Diamond, heart etc..
@@ -37,10 +37,10 @@ public class Card {
 
     @Override
     public String toString() {
-        return face + Utils.FACES.get(Utils.FACES.indexOf(face));
+        return Utils.FACES.get(Utils.FACES.indexOf(face)) + suitFamily;
     }
-    
-    
-    
-    
+
+
+
+
 }
