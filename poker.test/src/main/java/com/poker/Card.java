@@ -1,4 +1,4 @@
-package com.poker.poker.test;
+package com.poker;
 
 /**
  * Class to represent a card in the poker game

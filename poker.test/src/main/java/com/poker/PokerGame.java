@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.poker.poker.test;
+package com.poker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,10 @@ class PokerGame {
         this.hand = this.deck.deal(Utils.HAND_SIZE);
     }
 
-    void score() {
-        this.evaluator.evaluate(this.hand);
+    void reportScore() {
+        String output = "";
+        output = this.hand.stream().map((card) -> card.toString() + " ").reduce(output, String::concat);
+        System.out.println("Your Hand: " + output);
+        System.out.println("You Have: " + this.evaluator.evaluate(this.hand));
     }
 }

@@ -1,4 +1,4 @@
-package com.poker.poker.test;
+package com.poker;
 
 /**
  *
@@ -9,7 +9,7 @@ public class Application {
         PokerGame game = new PokerGame();
         game.play();
         game.draw();
-        game.score();
+        game.reportScore();
     }
     
 }
