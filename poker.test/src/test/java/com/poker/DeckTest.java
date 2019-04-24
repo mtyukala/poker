@@ -46,7 +46,7 @@ public class DeckTest {
     @Test
     public void testShuffle() {
         System.out.println("shuffle");
-        Deck instance = new Deck(new ArrayList<>());
+        Deck instance = new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS);
         instance.shuffle();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -58,7 +58,7 @@ public class DeckTest {
     @Test
     public void testGetCards() {
         System.out.println("getCards");
-        Deck instance = new Deck(new ArrayList<>());
+        Deck instance = new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS);
         List<Card> expResult = null;
         List<Card> result = instance.getCards();
         assertEquals(expResult, result);
@@ -73,7 +73,7 @@ public class DeckTest {
     public void testDeal() {
         System.out.println("deal");
         int size = 0;
-        Deck instance = new Deck(new ArrayList<>());
+        Deck instance = new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS);
         List<Card> expResult = null;
         List<Card> result = instance.deal(size);
         assertEquals(expResult, result);

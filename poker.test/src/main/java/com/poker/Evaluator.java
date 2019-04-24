@@ -14,9 +14,10 @@ import java.util.List;
  *
  * @author mt
  */
-public class Evaluator {
+public class Evaluator implements ScoringSystem, IHandEvaluator {
 
-    public static boolean isFourOfKind(List<Card> hand) {
+    @Override
+    public boolean isFourOfKind(List<Card> hand) {
         if (hand.size() != 5) {
             return false;
         }
@@ -37,7 +38,8 @@ public class Evaluator {
         return a1 || a2;
     }
 
-    public static boolean isFullHouse(List<Card> hand) {
+    @Override
+    public boolean isFullHouse(List<Card> hand) {
         if (hand.size() != 5) {
             return false;
         }
@@ -57,7 +59,8 @@ public class Evaluator {
         return a1 || a2;
     }
 
-    public static boolean isThreeOfKind(List<Card> hand) {
+    @Override
+    public boolean isThreeOfKind(List<Card> hand) {
         if (hand.size() != 5) {
             return false;
         }
@@ -83,7 +86,8 @@ public class Evaluator {
         return a1 || a2 || a3;
     }
 
-    public static boolean isTwoPair(List<Card> hand) {
+    @Override
+    public boolean isTwoPair(List<Card> hand) {
         if (hand.size() != 5) {
             return false;
         }
@@ -109,7 +113,8 @@ public class Evaluator {
         return a1 || a2 || a3;
     }
 
-    public static boolean isOnePair(List<Card> hand) {
+    @Override
+    public boolean isOnePair(List<Card> hand) {
         if (hand.size() != 5) {
             return false;
         }
@@ -127,7 +132,8 @@ public class Evaluator {
 
     }
 
-    public static boolean isHighCards(List<Card> hand) {
+    @Override
+    public boolean isHighCards(List<Card> hand) {
         // --- Any hand which doesn't qualify as any one of the above hands.
         return !(isFlush(hand)
                 || isFullHouse(hand)
@@ -139,10 +145,12 @@ public class Evaluator {
                 || isStraightFlush(hand));
     }
 
-    public static boolean isStraightFlush(List<Card> hand) {
+    @Override
+    public boolean isStraightFlush(List<Card> hand) {
         return isStraight(hand) && isFlush(hand);
     }
-    public static boolean isFlush(List<Card> hand) {
+    @Override
+    public boolean isFlush(List<Card> hand) {
         if (hand.size() != 5) {
             return false;
         }
@@ -152,7 +160,8 @@ public class Evaluator {
         return (hand.get(0).getRank() == hand.get(4).getRank());
     }
 
-    public static boolean isStraight(List<Card> hand) {
+    @Override
+    public boolean isStraight(List<Card> hand) {
 
         int i, testRank;
 
@@ -190,7 +199,7 @@ public class Evaluator {
 
     }
 
-    public static void sort(List<Card> hand) {
+    public void sort(List<Card> hand) {
         Collections.sort(hand, (Card card1, Card card2) -> card1.compareTo(card2));
     }
 
@@ -201,6 +210,7 @@ public class Evaluator {
      * @param hand the hand to check
      * @return a String indicating on the strength of the hand
      */
+    @Override
     public String evaluate(List<Card> hand) {
         if (isStraightFlush(hand)) {
             return "Straight Flush";

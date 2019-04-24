@@ -7,6 +7,7 @@ package com.poker;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class to define a deck of cards.
@@ -16,13 +17,18 @@ import java.util.List;
 public class Deck {
 
     private final List<Card> cards;
-
+    private List<String> cardFaces;
+    private Map<String, String> cardSuit;
     /**
      *
      * @param cards the value of cards
      */
-    public Deck(List<Card> cards) {
+    public Deck(List<Card> cards, List<String> faces, Map<String, String> suits) {
         this.cards = cards;
+        this.cardFaces = faces;
+        this.cardSuit = suits;
+
+        initDeck();
     }
 
 
@@ -30,18 +36,23 @@ public class Deck {
      * Creates a new list of cards using the suits and faces and shuffle them
      */
     public void shuffle() {
-        Utils.SUITS.entrySet().forEach((entry) -> {
-            Utils.FACES.forEach((face) -> {
-                int index = Utils.FACES.indexOf(face);
+        Collections.shuffle(cards);
+    }
+
+    // --- initialises the deck of card to the faces and suits
+    private void initDeck() {
+        cardSuit.entrySet().forEach((entry) -> {
+            cardFaces.forEach((face) -> {
+                int index = cardFaces.indexOf(face);
                 cards.add(new Card(entry.getValue(), face, index >= 0 ? index + 1 : 1));
             });
         });
-        Collections.shuffle(cards);
     }
+
     /**
      * Return the list of cards
      *
-     * @return
+     * @return list of cards on this deck
      */
     public List<Card> getCards() {
         return cards;

@@ -5,6 +5,7 @@
  */
 package com.poker;
 
+import java.util.ArrayList;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -43,7 +44,7 @@ public class PokerGameTest {
     @Test
     public void testPlay() {
         System.out.println("play");
-        PokerGame instance = new PokerGame(new Deck(new ArrayList<>()), new Evaluator(), new ArrayList<>());
+        PokerGame instance = new PokerGame(new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS), new Evaluator(), new ArrayList<>());
         instance.play();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -55,7 +56,7 @@ public class PokerGameTest {
     @Test
     public void testDraw() {
         System.out.println("draw");
-        PokerGame instance = new PokerGame(new Deck(new ArrayList<>()), new Evaluator(), new ArrayList<>());
+        PokerGame instance = new PokerGame(new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS), new Evaluator(), new ArrayList<>());
         instance.draw();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -67,7 +68,7 @@ public class PokerGameTest {
     @Test
     public void testReportScore() {
         System.out.println("reportScore");
-        PokerGame instance = new PokerGame(new Deck(new ArrayList<>()), new Evaluator(), new ArrayList<>());
+        PokerGame instance = new PokerGame(new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS), new Evaluator(), new ArrayList<>());
         instance.reportScore();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
