@@ -43,7 +43,7 @@ public class PokerGameTest {
     @Test
     public void testPlay() {
         System.out.println("play");
-        PokerGame instance = new PokerGame();
+        PokerGame instance = new PokerGame(new Deck(), new Evaluator(), new ArrayList<>());
         instance.play();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -55,7 +55,7 @@ public class PokerGameTest {
     @Test
     public void testDraw() {
         System.out.println("draw");
-        PokerGame instance = new PokerGame();
+        PokerGame instance = new PokerGame(new Deck(), new Evaluator(), new ArrayList<>());
         instance.draw();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -67,7 +67,7 @@ public class PokerGameTest {
     @Test
     public void testReportScore() {
         System.out.println("reportScore");
-        PokerGame instance = new PokerGame();
+        PokerGame instance = new PokerGame(new Deck(), new Evaluator(), new ArrayList<>());
         instance.reportScore();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

@@ -12,28 +12,38 @@ import java.util.List;
  *
  * @author mt
  */
-class PokerGame {
+class PokerGame implements GameInterface {
 
     private final Deck deck;
     private final Evaluator evaluator;
     private List<Card> hand;
 
-    public PokerGame() {
-        this.deck = new Deck();
-        this.evaluator = new Evaluator();
+    /**
+     * Copy constructor to create a game instance from the given parameters
+     *
+     * @param deck the deck of cards to use for this game
+     * @param evaluator the evaluator for the game
+     * @param hand a list of card for the game
+     */
+    public PokerGame(Deck deck, Evaluator evaluator, List<Card> hand) {
+        this.deck = deck;
+        this.evaluator = evaluator;
         this.hand = new ArrayList<>();
     }
 
 
-    void play() {
+    @Override
+    public void play() {
         this.deck.shuffle();
     }
 
-    void draw() {
+    @Override
+    public void draw() {
         this.hand = this.deck.deal(Utils.HAND_SIZE);
     }
 
-    void reportScore() {
+    @Override
+    public void reportScore() {
         String output = "";
         output = this.hand.stream().map((card) -> card.toString() + " ").reduce(output, String::concat);
         System.out.println("Your Hand: " + output);
