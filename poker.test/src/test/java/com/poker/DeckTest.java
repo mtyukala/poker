@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -47,24 +47,12 @@ public class DeckTest {
     public void testShuffle() {
         System.out.println("shuffle");
         Deck instance = new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS);
+        List<Card> cards1 = new Deck(new ArrayList<Card>(), Utils.FACES, Utils.SUITS).getCards();
         instance.shuffle();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        List<Card> cards2 = instance.getCards();
+        Assertions.assertNotEquals(cards1, cards2);
     }
 
-    /**
-     * Test of getCards method, of class Deck.
-     */
-    @Test
-    public void testGetCards() {
-        System.out.println("getCards");
-        Deck instance = new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS);
-        List<Card> expResult = null;
-        List<Card> result = instance.getCards();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
 
     /**
      * Test of deal method, of class Deck.
@@ -74,11 +62,9 @@ public class DeckTest {
         System.out.println("deal");
         int size = 0;
         Deck instance = new Deck(new ArrayList<>(), Utils.FACES, Utils.SUITS);
-        List<Card> expResult = null;
+        List<Card> expResult = instance.getCards().subList(0, size);
         List<Card> result = instance.deal(size);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
 }
