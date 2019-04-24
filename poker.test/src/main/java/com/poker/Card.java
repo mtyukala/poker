@@ -9,6 +9,8 @@ import java.io.Serializable;
 public class Card implements Serializable, Comparable<Card> {
 
     private static final long serialVersionUID = 1L;
+    private static final int HASH = 37;
+
     private String suitFamily;
     private String face;
     private int rank; // --- rank is currently the index of the card in Util.FACES
@@ -108,7 +110,8 @@ public class Card implements Serializable, Comparable<Card> {
     }
     @Override
     public int hashCode() {
-        return this.rank * 37;
+        return HASH * this.rank;
     }
+
 
 }
