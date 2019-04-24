@@ -1,6 +1,7 @@
 package com.poker;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -8,10 +9,14 @@ import java.util.ArrayList;
  */
 public class Application {
     public static void main(String[] args) {
-        PokerGame game = new PokerGame(new Deck(), new Evaluator(), new ArrayList<>());
+        List<Card> cards = new ArrayList<>();
+        final Deck deck = new Deck(cards);
+        final Evaluator evaluator = new Evaluator();
+        final List<Card> hand = new ArrayList<>();
+
+        PokerGame game = new PokerGame(deck, evaluator, hand);
         game.play();
         game.draw();
         game.reportScore();
     }
-
 }

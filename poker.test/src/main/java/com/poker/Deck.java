@@ -5,7 +5,6 @@
  */
 package com.poker;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,7 +15,16 @@ import java.util.List;
  */
 public class Deck {
 
-    private final List<Card> cards = new ArrayList<>();
+    private final List<Card> cards;
+
+    /**
+     *
+     * @param cards the value of cards
+     */
+    public Deck(List<Card> cards) {
+        this.cards = cards;
+    }
+
 
     /**
      * Creates a new list of cards using the suits and faces and shuffle them

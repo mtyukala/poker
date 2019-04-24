@@ -5,6 +5,7 @@
  */
 package com.poker;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
@@ -45,7 +46,7 @@ public class DeckTest {
     @Test
     public void testShuffle() {
         System.out.println("shuffle");
-        Deck instance = new Deck();
+        Deck instance = new Deck(new ArrayList<>());
         instance.shuffle();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -57,7 +58,7 @@ public class DeckTest {
     @Test
     public void testGetCards() {
         System.out.println("getCards");
-        Deck instance = new Deck();
+        Deck instance = new Deck(new ArrayList<>());
         List<Card> expResult = null;
         List<Card> result = instance.getCards();
         assertEquals(expResult, result);
@@ -72,7 +73,7 @@ public class DeckTest {
     public void testDeal() {
         System.out.println("deal");
         int size = 0;
-        Deck instance = new Deck();
+        Deck instance = new Deck(new ArrayList<>());
         List<Card> expResult = null;
         List<Card> result = instance.deal(size);
         assertEquals(expResult, result);
