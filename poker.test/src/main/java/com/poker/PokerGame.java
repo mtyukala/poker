@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.poker;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -45,6 +41,9 @@ class PokerGame implements GameInterface {
     @Override
     public void reportScore() {
         String output = "";
+        //Collections.sort(this.hand);
+        Collections.sort(hand, (Card card1, Card card2) -> card1.compareTo(card2));
+
         output = this.hand.stream().map((card) -> card.toString() + " ").reduce(output, String::concat);
         System.out.println("Your Hand: " + output);
         System.out.println("You Have: " + this.evaluator.evaluate(this.hand));

@@ -17,11 +17,14 @@ import java.util.Map;
 public class Deck {
 
     private final List<Card> cards;
-    private List<String> cardFaces;
-    private Map<String, String> cardSuit;
+    private final List<String> cardFaces;
+    private final Map<String, String> cardSuit;
     /**
+     * Copy constructor from the given parameters
      *
-     * @param cards the value of cards
+     * @param cards the initial list of cards from which to create an instance
+     * @param faces the faces of cards from which to create a deck
+     * @param suits the suits of cards from which to create a deck
      */
     public Deck(List<Card> cards, List<String> faces, Map<String, String> suits) {
         this.cards = cards;
@@ -58,13 +61,18 @@ public class Deck {
         return cards;
     }
     /**
-     * Gets a sub list of the deck of cards
+     * Gets a sub list of the deck of cards of the given size. After dealing,
+     * the method removes the sub list from the deck of cards
      *
-     * @param size
-     * @return
+     * @param size the size of the hand to deal
+     * @return the sublist of cards
      */
     public List<Card> deal(int size) {
-        return cards.subList(0, size);
+        List<Card> hand = cards.subList(0, size);
+
+        cards.removeAll(hand); // --- remove the hand from the original card list
+
+        return hand;
     }
 
 }
