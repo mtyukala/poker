@@ -1,14 +1,26 @@
 package com.poker;
 
+import java.io.Serializable;
+
 /**
  * Class to represent a card in the poker game
  * @author mt
  */
-public class Card implements Comparable<Card> {
+public class Card implements Serializable, Comparable<Card> {
+
+    private static final long serialVersionUID = 1L;
     private String suitFamily;
     private String face;
     private int rank; // --- rank is currently the index of the card in Util.FACES
 
+    /**
+     * Default constructor to create a card instance
+     */
+    public Card() {
+        this.suitFamily = "";
+        this.face = "";
+        this.rank = 0;
+    }
 
     /**
      * Constructor to create a card object from the given parameters
@@ -94,6 +106,9 @@ public class Card implements Comparable<Card> {
         }
         return EQUAL;
     }
-
+    @Override
+    public int hashCode() {
+        return this.rank * 37;
+    }
 
 }
